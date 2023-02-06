@@ -40,6 +40,9 @@ typescript                      4.6.4
 2. The `ngx-mrz-sdk` is located in `projects/ngx-mrz-sdk`. Add the `--watch` flag to run incremental build as a background process:
 
     ```bash
+    cd projects/ngx-mrz-sdk
+    npm install
+    cd ../../
     ng build ngx-mrz-sdk --watch
     ```
 

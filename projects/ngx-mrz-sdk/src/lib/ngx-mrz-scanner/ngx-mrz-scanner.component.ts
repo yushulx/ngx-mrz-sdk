@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { LabelRecognizer } from 'dynamsoft-label-recognizer';
 import { CameraEnhancer, DrawingItem } from 'dynamsoft-camera-enhancer';
 import { OverlayManager } from '../overlay';
@@ -11,6 +11,7 @@ import { MrzParser } from '../parser';
 })
 export class NgxMrzScannerComponent implements OnInit {
   @Input() showOverlay: boolean;
+  @Input() showCamera: boolean;
   isLoaded = false;
   overlay: HTMLCanvasElement | undefined;
   context: CanvasRenderingContext2D | undefined;
@@ -25,6 +26,7 @@ export class NgxMrzScannerComponent implements OnInit {
   constructor() {
     this.overlayManager = new OverlayManager();
     this.showOverlay = true;
+    this.showCamera = true;
   }
 
   ngOnInit(): void {
@@ -36,6 +38,27 @@ export class NgxMrzScannerComponent implements OnInit {
     (async () => {
       await this.initCameraEnhancer();
     })();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    for (const propName in changes) {
+      const chng = changes[propName];
+
+      if (propName == 'showCamera') {
+    
+        this.showCamera = chng.currentValue;
+        if (!this.showCamera) {
+          this.showOverlay = false;
+          this.overlayManager.clearOverlay();
+          this.scanner?.stopScanning();
+        }
+        else {
+          this.showOverlay = true;
+          this.scanner?.startScanning();
+        }
+      }
+      
+    }
   }
 
   updateResolution(): void {
@@ -73,7 +96,6 @@ export class NgxMrzScannerComponent implements OnInit {
 
     this.scanner.onImageRead = (results: any) => {
       this.overlayManager.clearOverlay();
-      console.log(results);
       let txts: any = [];
       try {
         if (results.length > 0) {

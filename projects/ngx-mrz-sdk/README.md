@@ -84,13 +84,14 @@ Ngx-mrz-sdk is an Angular MRZ recognition module built with [Dynamsoft Label Rec
     - `<ngx-mrz-scanner>`: a component to scan MRZ from a video stream.
 
 5. Set the **properties**:
-    - result: an array including the recognized MRZ characters and the extracted information.
-    - showOverlay: a boolean value indicating whether to show the overlay.
+    - `result`: an array including the recognized MRZ characters and the extracted information.
+    - `showOverlay`: a boolean value indicating whether to show the overlay.
+    - `showCamera`: a boolean value indicating whether to show the camera.
     
     For example:
 
     ```html
-    <ngx-mrz-scanner (result)="onResultReady($event)" [showOverlay]="true"></ngx-mrz-scanner>
+    <ngx-mrz-scanner (result)="onResultReady($event)" [showOverlay]="true" [showCamera]="true"></ngx-mrz-scanner>
     ```
   
 

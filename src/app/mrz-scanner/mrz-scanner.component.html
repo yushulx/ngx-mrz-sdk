@@ -1,8 +1,12 @@
+
+<!-- <button (click)="showOverlay = !showOverlay">Toggle Overlay</button> -->
+<button (click)="showCamera = !showCamera">Toggle Camera</button>
 <div id="mrzResult">
   {{mrzResult}}
 </div>
 
 <ngx-mrz-scanner
 (result)="onResultReady($event)"
-[showOverlay]="true"
+[showOverlay]="showOverlay"
+[showCamera]="showCamera"
 ></ngx-mrz-scanner>

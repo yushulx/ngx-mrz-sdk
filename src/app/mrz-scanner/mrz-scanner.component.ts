@@ -7,6 +7,8 @@ import { NgxMrzSdkService } from 'ngx-mrz-sdk';
   styleUrls: ['./mrz-scanner.component.css']
 })
 export class MrzScannerComponent implements OnInit {
+  showCamera = true;
+  showOverlay = true;
   mrzResult: string = '';
   constructor(private mrzSdkService: NgxMrzSdkService) {
   }
@@ -21,5 +23,10 @@ export class MrzScannerComponent implements OnInit {
       this.mrzResult += i + ": " + result[1][i] + '\n';
     }
     // this.mrzResult = result[0];
+
+    if (this.mrzResult != "") {
+      this.showCamera = false;
+      this.showOverlay = false;
+    }
   }
 }

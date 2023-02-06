@@ -52,7 +52,6 @@ export class NgxMrzReaderComponent implements OnInit {
               this.overlayManager.updateOverlay(img.width, img.height);
               if (this.reader) {
                 this.reader.recognize(file).then((results: any) => {
-                  console.log(results);
                   let txts: any = [];
                   try {
                     if (results.length > 0) {
