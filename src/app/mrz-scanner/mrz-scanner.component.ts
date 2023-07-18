@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxMrzSdkService } from 'ngx-mrz-sdk';
+import { NgxMrzSdkService } from '../dynamsoft/ngx-mrz-sdk.service';
 
 @Component({
   selector: 'app-mrz-scanner',
