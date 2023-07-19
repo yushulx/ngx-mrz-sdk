@@ -8,7 +8,7 @@ import { MrzScannerComponent } from './mrz-scanner/mrz-scanner.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { DynamsoftModule } from './dynamsoft/dynamsoft.module';
-
+import {ModuleaModule} from './modulea/modulea.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +20,7 @@ import { DynamsoftModule } from './dynamsoft/dynamsoft.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ModuleaModule,
     DynamsoftModule.forRoot({ 
       licenseKey: "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTE2NDk4Mjk3OTI2MzUiLCJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSIsInNlc3Npb25QYXNzd29yZCI6IndTcGR6Vm05WDJrcEQ5YUoifQ==", 
       dceResourcePath: "assets/dynamsoft-camera-enhancer", 
