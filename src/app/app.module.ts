@@ -9,6 +9,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { DynamsoftModule } from './dynamsoft/dynamsoft.module';
 import {ModuleaModule} from './modulea/modulea.module';
+import { ModulebModule } from './moduleb/moduleb.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import {ModuleaModule} from './modulea/modulea.module';
     BrowserModule,
     AppRoutingModule,
     ModuleaModule,
+    ModulebModule,
     DynamsoftModule.forRoot({ 
       licenseKey: "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTE2NDk4Mjk3OTI2MzUiLCJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSIsInNlc3Npb25QYXNzd29yZCI6IndTcGR6Vm05WDJrcEQ5YUoifQ==", 
       dceResourcePath: "assets/dynamsoft-camera-enhancer", 
