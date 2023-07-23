@@ -19,12 +19,12 @@ import { MrzSdkServiceConfig } from './ngx-mrz-sdk.service';
   ]
 })
 export class DynamsoftModule { 
-  constructor(@Optional() @SkipSelf() parentModule?: DynamsoftModule) {
-    if (parentModule) {
-      throw new Error(
-        'GreetingModule is already loaded. Import it in the AppModule only');
-    }
-  }
+  // constructor(@Optional() @SkipSelf() parentModule?: DynamsoftModule) {
+  //   if (parentModule) {
+  //     throw new Error(
+  //       'GreetingModule is already loaded. Import it in the AppModule only');
+  //   }
+  // }
 
   static forRoot(config: MrzSdkServiceConfig): ModuleWithProviders<DynamsoftModule> {
     return {
